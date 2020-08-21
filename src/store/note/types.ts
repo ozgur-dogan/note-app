@@ -10,17 +10,13 @@ export interface NoteState {
 }
 export interface NoteInterface {
   id: string;
-  createAt: Date;
   lastUpdated: Date;
   content: string;
 }
 
 export interface SetNoteAction extends Action {
   type: ActionEnum.SET_NOTE;
-  args: {
-    id: string;
-    content: string;
-  };
+  args: NoteInterface;
 }
 
 export interface RemoveNoteAction extends Action {

@@ -1,5 +1,5 @@
 import { combineReducers, Reducer } from "redux";
-import { routerReducer, RouterState } from "react-router-redux";
+import { routerReducer, RouterState, RouterAction } from "react-router-redux";
 import { NoteState, NoteActions } from "./note/types";
 import noteReducer from "./note/reducer";
 
@@ -13,4 +13,4 @@ export const reducers: Reducer<ApplicationState> = combineReducers<ApplicationSt
   note: noteReducer,
 });
 
-export type ApplicationAction = NoteActions;
+export type ApplicationAction = NoteActions | RouterAction;

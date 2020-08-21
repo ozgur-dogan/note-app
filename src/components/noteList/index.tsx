@@ -1,10 +1,9 @@
 import React, { Dispatch } from "react";
 import { v4 as uuidv4 } from "uuid";
 import { NoteInterface } from "../../store/note/types";
-import { ApplicationState } from "../../store";
+import { ApplicationState, ApplicationAction } from "../../store";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
-import { SetNoteAction } from "../../store/note/types";
 import { setNote } from "../../store/note/actions";
 import { push } from "react-router-redux";
 interface NoteListProps {
@@ -34,7 +33,7 @@ const mapStateToProps = (store: ApplicationState) => {
   return { notes: Object.values(store.note.notes) };
 };
 
-const mapDispatchToProps = (dispatch: Dispatch<SetNoteAction>) => {
+const mapDispatchToProps = (dispatch: Dispatch<ApplicationAction>) => {
   return {
     createNew: () => {
       const uuid = uuidv4();

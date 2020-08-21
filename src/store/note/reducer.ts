@@ -1,5 +1,3 @@
-// ./src/store/chat/reducer.ts
-
 import { Reducer } from "redux";
 import { NoteState, NoteActions, ActionEnum, SetNoteAction, RemoveNoteAction } from "./types";
 
@@ -16,7 +14,7 @@ const reducer: Reducer<NoteState, NoteActions> = (state: NoteState = initialStat
       return newState;
     case ActionEnum.SET_NOTE:
       const argsSet = (action as SetNoteAction).args;
-      return { ...state, notes: { ...state.notes, [argsSet.id]: argsSet.content } } as NoteState;
+      return { ...state, notes: { ...state.notes, [argsSet.id]: argsSet } } as NoteState;
     default:
       return state;
   }
