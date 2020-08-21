@@ -4,12 +4,17 @@ import { History } from "history";
 import { composeWithDevTools } from "redux-devtools-extension";
 
 import { ApplicationState, ApplicationAction, reducers } from ".";
+import { setStorage, getStorage } from "./localStorage";
 const composeEnhancers = composeWithDevTools({});
 
 export default function configureStore(history: History): Store<ApplicationState> {
-  return createStore<ApplicationState, ApplicationAction, any, any>(
+  const store = createStore<ApplicationState, ApplicationAction, any, any>(
     reducers,
-    undefined,
+    getStorage(),
     composeEnhancers(applyMiddleware(routerMiddleware(history)))
   );
+  store.subscribe(() => {
+    setStorage(store.getState());
+  });
+  return store;
 }

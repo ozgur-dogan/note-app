@@ -2,21 +2,21 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { Provider } from "react-redux";
 import configureStore from "./store/configureStore";
-import { Router } from "react-router";
+import Router from "./router";
 import { createBrowserHistory } from "history";
-import App from "./App";
 import * as serviceWorker from "./serviceWorker";
+import { BrowserRouter } from "react-router-dom";
 
 const history = createBrowserHistory();
 const store = configureStore(history);
 
 ReactDOM.render(
   <React.StrictMode>
-    <Router history={history}>
+    <BrowserRouter>
       <Provider store={store}>
-        <App />
+        <Router />
       </Provider>
-    </Router>
+    </BrowserRouter>
   </React.StrictMode>,
   document.getElementById("root")
 );
