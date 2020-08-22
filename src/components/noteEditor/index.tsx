@@ -1,21 +1,24 @@
 import React, { Dispatch } from "react";
 import { connect } from "react-redux";
 import { ApplicationState } from "../../store";
-import { SetNoteAction } from "../../store/note/types";
+import { SetNoteAction, NoteInterface } from "../../store/note/types";
 import { setNote } from "../../store/note/actions";
 import NoteEditorProps from "./props";
 import NoteEditorView from "./view";
 
-const NoteEditor: React.FunctionComponent<NoteEditorProps> = ({ id, content, onChange }) => {
-  return <NoteEditorView content={content} onChange={onChange} id={id}/>
+const NoteEditor: React.FunctionComponent<NoteEditorProps> = (props) => {
+  return <NoteEditorView {...props} key={props.id} />;
 };
 
 const mapStateToProps = (store: ApplicationState, ownProps: NoteEditorProps) => {
   const id: string = ownProps.id;
-  const content: string = store?.note?.notes[id]?.content;
+  const note: NoteInterface = store?.note?.notes[id];
+  const content = note.content;
+  const title = note.title;
   const props: NoteEditorProps = {
     id,
     content,
+    title,
   };
   return props;
 };
@@ -23,8 +26,8 @@ const mapStateToProps = (store: ApplicationState, ownProps: NoteEditorProps) => 
 const mapDispatchToProps = (dispatch: Dispatch<SetNoteAction>, ownProps: NoteEditorProps) => {
   const id: string = ownProps.id;
   return {
-    onChange: (content: string) => {
-      dispatch(setNote(id, content));
+    onChange: (content: string, title: string) => {
+      dispatch(setNote(id, content, title));
     },
   };
 };

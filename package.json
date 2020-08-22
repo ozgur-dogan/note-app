@@ -17,8 +17,6 @@
     "@types/react-router-dom": "^5.1.5",
     "@types/react-router-redux": "^5.0.18",
     "@types/redux": "^3.6.0",
-    "@types/slate": "^0.47.7",
-    "@types/slate-react": "^0.22.9",
     "@types/uuid": "^8.3.0",
     "draft-js": "^0.11.7",
     "react": "^16.13.1",
@@ -29,8 +27,6 @@
     "react-scripts": "3.4.3",
     "redux": "^4.0.5",
     "redux-devtools-extension": "^2.13.8",
-    "slate": "^0.58.4",
-    "slate-react": "^0.58.4",
     "typescript": "~3.7.2",
     "uuid": "^8.3.0"
   },

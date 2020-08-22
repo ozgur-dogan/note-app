@@ -12,6 +12,7 @@ export interface NoteInterface {
   id: string;
   lastUpdated: Date;
   content: string;
+  title: string;
 }
 
 export interface SetNoteAction extends Action {

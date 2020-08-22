@@ -1,7 +1,8 @@
 interface NoteEditorProps {
   id: string;
   content?: string;
-  onChange?: (content: string) => void;
+  title?: string;
+  onChange?: (content: string, title: string) => void;
 }
 
 export default NoteEditorProps;

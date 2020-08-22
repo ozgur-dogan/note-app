@@ -7,16 +7,14 @@ import NoteListItemView from "./view";
 import { useParams } from "react-router-dom";
 import RouteParams from "../../../router/params";
 
-const NoteListItem: React.FunctionComponent<NoteListItemProps> = ({ id, content }) => {
-  let params = useParams<RouteParams>();
+const NoteListItem: React.FunctionComponent<NoteListItemProps> = ({ id, title }) => {
   const currentNoteID: string | undefined = useParams<RouteParams>().noteID;
-  console.log({ currentNoteID, params });
-  return <NoteListItemView id={id} content={content} isSelected={currentNoteID === id} />;
+  return <NoteListItemView id={id} title={title} isSelected={currentNoteID === id} />;
 };
 
 const mapStateToProps = (store: ApplicationState, ownProps: NoteListItemProps) => {
   const { id } = ownProps;
-  return { content: store.note?.notes[id]?.content };
+  return { title: store.note?.notes[id]?.title };
 };
 
 const mapDispatchToProps = (dispatch: Dispatch<RouterAction>, ownProps: NoteListItemProps) => {

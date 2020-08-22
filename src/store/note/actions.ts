@@ -1,10 +1,11 @@
 import { ActionCreator } from "redux";
 import { SetNoteAction, RemoveNoteAction, ActionEnum, NoteInterface } from "./types";
 
-export const setNote: ActionCreator<SetNoteAction> = (id: string, content: string = "") => {
+export const setNote: ActionCreator<SetNoteAction> = (id: string, content: string, title: string) => {
   const note: NoteInterface = {
     id,
     content,
+    title,
     lastUpdated: new Date(),
   };
   return {

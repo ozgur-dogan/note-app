@@ -7,7 +7,7 @@ import MainPageProps from "./props";
 const MainPageView: React.FunctionComponent<MainPageProps> = ({ noteID }) => {
   const editor = noteID ? <NoteEditor key={noteID} id={noteID} /> : null;
   return (
-    <Grid container>
+    <Grid container spacing={2}>
       <Grid item xs={12} md={4} lg={3}>
         <NoteList />
       </Grid>
