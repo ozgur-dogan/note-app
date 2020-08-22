@@ -5,7 +5,7 @@ import MainPage from "../pages/mainPage";
 const Router: React.FunctionComponent<{}> = (props: {}) => {
   return (
     <Switch>
-      <Route path={["/", "/:noteID"]} component={MainPage} />
+      <Route path={["/:noteID","/"]} component={MainPage} />
     </Switch>
   );
 };

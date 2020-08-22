@@ -1,6 +1,6 @@
 import React from "react";
 import { Grid } from "@material-ui/core";
-import NoteList from "../component/noteList";
+import NoteList from "../../components/noteList";
 import NoteEditor from "../../components/noteEditor";
 import MainPageProps from "./props";
 
